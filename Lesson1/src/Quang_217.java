@@ -14,7 +14,7 @@ public class Quang_217 {
     public static boolean containsDuplicate(int[] nums) {
         if (nums == null || nums.length == 0) return false;
         int len = nums.length;
-        //sort by selection sort
+        // selection sort
         int temp = 0;
         for (int i = 0; i < len; i++) {
             for (int j = 1; j < (len - i); j++) {
@@ -27,11 +27,14 @@ public class Quang_217 {
 
             }
         }
+        // duyệt từ đầu đến cuối mảng
         for (int i = 0; i < len - 1; i++) {
+            // 2 phần tử liền kề bằng nhau thì return true
             if (nums[i] == nums[i + 1]) {
                 return true;
             }
         }
+        // không tồn tại cặp thỏa mãn thì return false
         return false;
     }
 }
