@@ -1,8 +1,3 @@
-import com.sun.security.jgss.GSSUtil;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Quang_217 {
     public static void main(String[] args) {
