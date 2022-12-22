@@ -1,4 +1,4 @@
-import java.util.Arrays;
+
 
 public class Quang_2418 {
     public static void main(String[] args) {
@@ -15,7 +15,6 @@ public class Quang_2418 {
         for (int i = 0; i < names.length; i++)
             people[i] = new int[]{heights[i], i};
         // sắp xếp giảm dần theo chiều cao
-//        Arrays.sort(people, (a, b) -> b[0] - a[0]);
         // sort sử dụng merge sort
         mergeSort(people,0, people.length-1,0);
         String[] result = new String[names.length];
@@ -77,6 +76,5 @@ public class Quang_2418 {
         mergeSort(arr, start, mid, index);
         mergeSort(arr, mid + 1, end, index);
         merge(arr, start, mid, end, index);
-        return;
     }
 }
