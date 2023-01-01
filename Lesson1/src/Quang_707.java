@@ -21,11 +21,12 @@ public class Quang_707 {
     static class MyLinkedList {
         Node head;
         int length;
-        public static class Node{
+
+        public static class Node {
             int val;
             Node next;
 
-            Node(int val){
+            Node(int val) {
                 this.val = val;
             }
         }
@@ -56,11 +57,11 @@ public class Quang_707 {
         }
 
         public void addAtTail(int val) {
-            if(head == null) {
+            if (head == null) {
                 addAtHead(val);
-            }else {
+            } else {
                 Node temp = head;
-                while(temp.next != null)
+                while (temp.next != null)
                     temp = temp.next;
                 temp.next = new Node(val);
                 length++;
@@ -68,14 +69,14 @@ public class Quang_707 {
         }
 
         public void addAtIndex(int index, int val) {
-            if(index > length)
+            if (index > length)
                 return;
-            if(index == 0)
+            if (index == 0)
                 addAtHead(val);
             else {
                 int count = 1;
                 Node temp = head;
-                while(count < index) {
+                while (count < index) {
                     temp = temp.next;
                     count++;
                 }
@@ -88,15 +89,15 @@ public class Quang_707 {
         }
 
         public void deleteAtIndex(int index) {
-            if(index >= length)
+            if (index >= length)
                 return;
-            if(index == 0) {
+            if (index == 0) {
                 head = head.next;
                 length--;
-            }else {
+            } else {
                 int count = 1;
                 Node temp = head;
-                while(count < index) {
+                while (count < index) {
                     count++;
                     temp = temp.next;
                 }
@@ -104,9 +105,10 @@ public class Quang_707 {
                 length--;
             }
         }
-        public void printNodes(){
+
+        public void printNodes() {
             Node tmp = head;
-            while (tmp!=null){
+            while (tmp != null) {
                 System.out.print(tmp.val + "->");
                 tmp = tmp.next;
             }
