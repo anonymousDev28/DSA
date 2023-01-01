@@ -22,7 +22,7 @@ public class Quang_203 {
         }
         System.out.println();
     }
-    //  time complexity: O(logn)
+    //  time complexity: O(n)
     //  space complexity: O(1)
     public static ListNode removeElements(ListNode head, int val) {
         ListNode node = head;
