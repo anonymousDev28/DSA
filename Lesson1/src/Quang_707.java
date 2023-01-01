@@ -18,23 +18,23 @@ public class Quang_707 {
         System.out.println("get index = 1: " + obj.get(1));
     }
 
-    public static class MyLinkedList {
-        static class Node {
+    static class MyLinkedList {
+        Node head;
+        int length;
+        public static class Node{
             int val;
             Node next;
 
-            public Node(int val) {
+            Node(int val){
                 this.val = val;
             }
         }
 
-        public Node head;
-
         public MyLinkedList() {
-
+            this.head = null;
+            this.length = 0;
         }
 
-        // ok
         public int get(int index) {
             Node node = head;
             int count = 0;
@@ -48,103 +48,68 @@ public class Quang_707 {
             return -1;
         }
 
-        // ok
         public void addAtHead(int val) {
             Node newNode = new Node(val);
             newNode.next = head;
             head = newNode;
+            length++;
         }
 
-        // ok
         public void addAtTail(int val) {
-            Node node = head;
-            Node newNode = new Node(val);
-            int size = getSize(head);
-            if (size == 0) {
+            if(head == null) {
                 addAtHead(val);
-                return;
+            }else {
+                Node temp = head;
+                while(temp.next != null)
+                    temp = temp.next;
+                temp.next = new Node(val);
+                length++;
             }
-            while (node != null) {
-                if (node.next == null) {
-                    node.next = newNode;
-                    return;
-                }
-                node = node.next;
-            }
-        }
-
-        public int getSize(Node head) {
-            int count = 0;
-            Node tmp = head;
-            while (tmp != null) {
-                count++;
-                tmp = tmp.next;
-            }
-            return count;
         }
 
         public void addAtIndex(int index, int val) {
-            if (index == 0) {
+            if(index > length)
+                return;
+            if(index == 0)
                 addAtHead(val);
-            } else {
-                int count = 0;
-                Node node = head;
-                Node newNode = new Node(val);
-                while (count < index) {
-                    if (count == index - 1) {
-                        newNode.next = node.next;
-                        node.next = newNode;
-                        return;
-                    }
+            else {
+                int count = 1;
+                Node temp = head;
+                while(count < index) {
+                    temp = temp.next;
                     count++;
-                    node = node.next;
                 }
-                if (count == index) {
-                    addAtTail(val);
-                }
+                Node newNode = new Node(val);
+                Node next = temp.next;
+                newNode.next = next;
+                temp.next = newNode;
+                length++;
             }
-        }
-
-        public void deleteAtTail() {
-            int size = getSize(head);
-            Node node = head;
-            // xac dinh prev cua tail
-            int count = 0;
-            while (count != size - 1) {
-                count++;
-                node = node.next;
-            }
-            // node dang la prev tail
-            node.next = null;
         }
 
         public void deleteAtIndex(int index) {
-            int count = 0;
-            Node node = head;
-            int size = getSize(head);
-            if (index == 0) {
-                //delete at head
+            if(index >= length)
+                return;
+            if(index == 0) {
                 head = head.next;
-            } else if (index == size) {
-                deleteAtTail();
-            } else {
-                while (node != null) {
-                    if (count == index - 1) {
-                        node.next = node.next.next;
-                    }
+                length--;
+            }else {
+                int count = 1;
+                Node temp = head;
+                while(count < index) {
                     count++;
-                    node = node.next;
+                    temp = temp.next;
                 }
+                temp.next = temp.next.next;
+                length--;
             }
         }
-
-        public void printNodes() {
+        public void printNodes(){
             Node tmp = head;
-            while (tmp != null) {
+            while (tmp!=null){
                 System.out.print(tmp.val + "->");
                 tmp = tmp.next;
             }
-            System.out.println();
         }
     }
 }
