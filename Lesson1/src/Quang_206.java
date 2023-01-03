@@ -28,7 +28,7 @@ public class Quang_206 {
         }
     }
 
-    //    time complexity: O(n)
+    //    time complexity: O( m + n )
     //    space complexity: O(n)
     public static ListNode reverseList(ListNode head) {
         ListNode tmp = head;
