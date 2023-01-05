@@ -7,7 +7,8 @@ public class Quang_2073 {
     public static void main(String[] args) {
         System.out.println(timeRequiredToBuy(new int[]{2, 3, 2}, 2));
     }
-
+    // time complexity: O(n)
+    // space comlexity: O(n)
     public static int timeRequiredToBuy(int[] tickets, int k) {
         // đánh dấu số vé của người mà đề bài yêu cầu
         tickets[k] *= -1;
